@@ -10,4 +10,5 @@ public interface IssuanceRecordService {
     Optional<IssuanceRecord> updateIssuanceRecord(IssuanceRecord issuanceRecord);
     Optional<Boolean> deleteIssuanceRecordById(Long id);
     Optional<List<IssuanceRecord>> getAllIssuanceRecords();
+    Optional<IssuanceRecord> getRecordById(Long id);
 }

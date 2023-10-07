@@ -1,6 +1,5 @@
 package com.example.library.service;
 
-import com.example.library.models.IssuanceRecord;
 import com.example.library.models.Reader;
 
 import java.util.List;
@@ -11,4 +10,5 @@ public interface ReaderService {
     Optional<Reader> updateReader(Reader reader);
     Optional<Boolean> deleteReader(Long id);
     Optional<List<Reader>> getAllReader();
+    Optional<Reader> getReaderById(Long id);
 }

@@ -79,4 +79,19 @@ public class ReaderServiceImpl implements ReaderService {
             return Optional.empty();
         }
     }
+    @Override
+    public Optional<Reader> getReaderById(Long id) {
+        try {
+            Reader existingReader=readerRepository.findById(id).orElse(null);
+            if(existingReader!=null){
+                return Optional.of(existingReader);
+            }else {
+                log.info("Нет такого читателя!!!");
+                return Optional.empty();
+            }
+        }catch (DataAccessException dataAccessException){
+            log.error("Error: " + dataAccessException);
+            return Optional.empty();
+        }
+    }
 }

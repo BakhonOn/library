@@ -1,10 +1,7 @@
 package com.example.library.models;
 
 import com.example.library.models.base.BaseEntity;
-import jakarta.persistence.Column;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.CreatedDate;
@@ -15,8 +12,9 @@ import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
 @Data
-@Table(name = "issuance_record")
+@Table(name = "issuance_records")
 @NoArgsConstructor
+@Entity
 public class IssuanceRecord extends BaseEntity {
     @NotNull
     @Column(name = "book_id")

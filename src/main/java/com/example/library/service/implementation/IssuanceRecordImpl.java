@@ -54,6 +54,24 @@ public class IssuanceRecordImpl implements IssuanceRecordService {
     }
 
     @Override
+    public Optional<IssuanceRecord> getRecordById(Long id) {
+        try{
+            IssuanceRecord record=issuanceRecordRepository.findById(id).orElse(null);
+            if (record!=null){
+                log.info("Данные были переданы!!!");
+                return Optional.of(record);
+            }else {
+                log.info("Нет такой записи!!!");
+                return Optional.empty();
+            }
+        }catch (DataAccessException dataAccessException){
+            log.error("Error: " + dataAccessException);
+            return Optional.empty();
+        }
+
+    }
+
+    @Override
     @Transactional
     public Optional<Boolean> deleteIssuanceRecordById(Long id) {
         try{
