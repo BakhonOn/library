@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface BookService {
-    Optional<Book> createBook(Book book);
+    Book createBook(Book book);
     Optional<Boolean> deleteBookById(Long id);
     Optional<Book> updateBook(Book book);
     Optional<Book> getBookById(Long id);

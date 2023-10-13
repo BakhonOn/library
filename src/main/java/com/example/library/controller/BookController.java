@@ -18,8 +18,8 @@ import java.util.Optional;
 public class BookController {
     private final BookService bookService;
     @PostMapping("new_book")
-    public ResponseEntity<Optional<Book>> postNewBook(@RequestBody Book book){
-        return new ResponseEntity<>(bookService.createBook(book), HttpStatus.OK);
+    public ResponseEntity<Book> postNewBook(@RequestBody Book book){
+        return ResponseEntity.ok(bookService.createBook(book));
     }
     @GetMapping("get_book")
     public ResponseEntity<Optional<Book>> getBookById(@RequestParam Long id){

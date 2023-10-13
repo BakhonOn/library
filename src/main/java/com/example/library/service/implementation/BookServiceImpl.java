@@ -20,14 +20,14 @@ public class BookServiceImpl implements BookService {
 
     @Override
     @Transactional
-    public Optional<Book> createBook(Book book) {
+    public Book createBook(Book book) {
         try {
             Book newBook = bookRepository.save(book);
             log.info("Создание книги: " + newBook);
-            return Optional.of(newBook);
+            return newBook;
         } catch (DataAccessException e) {
             log.error("Ошибка при создании книги: ", e);
-            return Optional.empty();
+            return null;
         }
     }
 
